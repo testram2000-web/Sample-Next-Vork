@@ -6,9 +6,10 @@
 
   <title>Next Vork - India's #1 Construction App</title>
 
-  <!-- Google Fonts & FontAwesome -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- FontAwesome -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -18,7 +19,8 @@
 
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- ================= NAVBAR ================= -->
+
   <header class="navbar">
 
     <div class="logo">
@@ -26,13 +28,35 @@
     </div>
 
     <nav class="nav-links">
-      <a href="#" class="active">Home</a>
-      <a href="#">Contact Us</a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" ></a>
-      <i class="fa-brands fa-instagram"></i> </a>
-      <!-- LinkedIn --> 
-      <a href="https://in.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" > 
-      <i class="fa-brands fa-linkedin-in"></i> </a>
+
+      <a href="index.html" class="active">
+        Home
+      </a>
+
+      <a href="#">
+        Contact Us
+      </a>
+
+      <!-- Instagram -->
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <!-- LinkedIn -->
+      <a
+        href="https://in.linkedin.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
     </nav>
 
     <a href="#" class="btn-download">
@@ -42,10 +66,12 @@
   </header>
 
 
-  <!-- Hero Section -->
+  <!-- ================= HERO SECTION ================= -->
+
   <section class="hero-container">
 
-    <!-- Left Content -->
+    <!-- LEFT CONTENT -->
+
     <div class="hero-content">
 
       <h1 class="hero-title">
@@ -58,8 +84,12 @@
       </p>
 
 
-      <!-- Search Form -->
-      <form class="booking-form" onsubmit="event.preventDefault();">
+      <!-- SEARCH FORM -->
+
+      <form
+        class="booking-form"
+        id="searchForm"
+      >
 
         <div class="input-group">
 
@@ -67,15 +97,20 @@
 
           <input
             type="text"
+            id="serviceSearch"
             placeholder="Search Your Service"
+            autocomplete="off"
             required
           >
 
         </div>
 
 
-        <button type="submit" class="btn-book">
-          Book Service
+        <button
+          type="submit"
+          class="btn-book"
+        >
+          Search Service
         </button>
 
       </form>
@@ -83,7 +118,8 @@
     </div>
 
 
-    <!-- Right Image -->
+    <!-- RIGHT IMAGE -->
+
     <div class="hero-image">
 
       <img
@@ -94,6 +130,38 @@
     </div>
 
   </section>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    const searchForm = document.getElementById("searchForm");
+
+    const serviceSearch =
+      document.getElementById("serviceSearch");
+
+
+    searchForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+
+      const service =
+        serviceSearch.value.trim();
+
+
+      if (service !== "") {
+
+        window.location.href =
+          "services.html?search=" +
+          encodeURIComponent(service);
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Next Vork - Book Service</title>
+
+
+  <!-- Google Font -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Font Awesome -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+
+  <!-- Main CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
+
+  <style>
+
+    /* =========================================
+       BOOKING PAGE
+    ========================================= */
+
+    .booking-page {
+
+      min-height: 100vh;
+
+      padding: 50px 20px 80px;
+
+      background-color: #f7fbfe;
+
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .booking-header {
+
+      text-align: center;
+
+      margin-bottom: 35px;
+
+    }
+
+
+    .booking-header h1 {
+
+      font-size: 40px;
+
+      font-weight: 800;
+
+      color: #2b2b2b;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .booking-header p {
+
+      font-size: 15px;
+
+      color: #666;
+
+    }
+
+
+    /* =========================================
+       BOOKING CONTAINER
+    ========================================= */
+
+    .booking-container {
+
+      max-width: 850px;
+
+      margin: 0 auto;
+
+      background-color: #ffffff;
+
+      border-radius: 20px;
+
+      padding: 40px;
+
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+    }
+
+
+    /* =========================================
+       SELECTED SERVICE
+    ========================================= */
+
+    .selected-service {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 18px;
+
+      padding: 18px;
+
+      margin-bottom: 30px;
+
+      background-color: #eaf7fc;
+
+      border-radius: 12px;
+
+    }
+
+
+    .selected-service-icon {
+
+      width: 55px;
+
+      height: 55px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background-color: skyblue;
+
+      color: #000;
+
+      font-size: 22px;
+
+    }
+
+
+    .selected-service-text small {
+
+      display: block;
+
+      color: #777;
+
+      font-size: 12px;
+
+      margin-bottom: 3px;
+
+    }
+
+
+    .selected-service-text h2 {
+
+      font-size: 19px;
+
+      color: #222;
+
+    }
+
+
+    /* =========================================
+       FORM
+    ========================================= */
+
+    .booking-form-page {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 22px;
+
+    }
+
+
+    .form-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+    }
+
+
+    .form-group.full-width {
+
+      grid-column: 1 / -1;
+
+    }
+
+
+    .form-group label {
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      color: #333;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .form-group input,
+
+    .form-group select,
+
+    .form-group textarea {
+
+      width: 100%;
+
+      padding: 14px 15px;
+
+      border: 1px solid #dcdcdc;
+
+      border-radius: 8px;
+
+      outline: none;
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: 14px;
+
+      color: #333;
+
+      background-color: #fff;
+
+      transition: 0.2s;
+
+    }
+
+
+    .form-group textarea {
+
+      min-height: 120px;
+
+      resize: vertical;
+
+    }
+
+
+    .form-group input:focus,
+
+    .form-group select:focus,
+
+    .form-group textarea:focus {
+
+      border-color: skyblue;
+
+      box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.15);
+
+    }
+
+
+    /* =========================================
+       CONFIRM BUTTON
+    ========================================= */
+
+    .confirm-button {
+
+      grid-column: 1 / -1;
+
+      width: 100%;
+
+      padding: 16px;
+
+      margin-top: 8px;
+
+      border: none;
+
+      border-radius: 9px;
+
+      background-color: skyblue;
+
+      color: #000;
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: 18px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+
+    }
+
+
+    .confirm-button:hover {
+
+      background-color: #63b8d8;
+
+      transform: translateY(-1px);
+
+    }
+
+
+    /* =========================================
+       BACK BUTTON
+    ========================================= */
+
+    .back-link {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 25px;
+
+      color: #333;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+    }
+
+
+    .back-link:hover {
+
+      color: #168db8;
+
+    }
+
+
+    /* =========================================
+       SUCCESS MESSAGE
+    ========================================= */
+
+    .success-message {
+
+      display: none;
+
+      text-align: center;
+
+      padding: 35px 20px;
+
+    }
+
+
+    .success-icon {
+
+      width: 70px;
+
+      height: 70px;
+
+      margin: 0 auto 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background-color: #dff6e7;
+
+      color: #20a050;
+
+      font-size: 32px;
+
+    }
+
+
+    .success-message h2 {
+
+      font-size: 27px;
+
+      color: #222;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .success-message p {
+
+      color: #666;
+
+      font-size: 14px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .home-button {
+
+      display: inline-block;
+
+      padding: 12px 25px;
+
+      border-radius: 8px;
+
+      background-color: skyblue;
+
+      color: #000;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 700px) {
+
+      .booking-page {
+
+        padding: 35px 15px 60px;
+
+      }
+
+
+      .booking-header h1 {
+
+        font-size: 30px;
+
+      }
+
+
+      .booking-container {
+
+        padding: 25px 20px;
+
+      }
+
+
+      .booking-form-page {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .form-group.full-width {
+
+        grid-column: auto;
+
+      }
+
+
+      .confirm-button {
+
+        grid-column: auto;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       NAVBAR
+  ========================================= -->
+
+  <header class="navbar">
+
+
+    <!-- Logo -->
+
+    <div class="logo">
+      Next Vork
+    </div>
+
+
+    <!-- Navigation -->
+
+    <nav class="nav-links">
+
+      <a href="index.html">
+        Home
+      </a>
+
+
+      <a href="#">
+        Contact Us
+      </a>
+
+
+      <!-- Instagram -->
+
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+
+        <i class="fa-brands fa-instagram"></i>
+
+      </a>
+
+
+      <!-- LinkedIn -->
+
+      <a
+        href="https://in.linkedin.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+
+        <i class="fa-brands fa-linkedin-in"></i>
+
+      </a>
+
+    </nav>
+
+
+    <!-- Download -->
+
+    <a href="#" class="btn-download">
+      Download App
+    </a>
+
+  </header>
+
+
+
+  <!-- =========================================
+       BOOKING PAGE
+  ========================================= -->
+
+  <main class="booking-page">
+
+
+    <div class="booking-header">
+
+      <h1>
+        Book Your Service
+      </h1>
+
+      <p>
+        Tell us about your requirements and we'll help you get started.
+      </p>
+
+    </div>
+
+
+
+    <!-- BOOKING BOX -->
+
+    <div class="booking-container">
+
+
+      <!-- Back -->
+
+      <a
+        href="services.html"
+        class="back-link"
+      >
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Services
+
+      </a>
+
+
+
+      <!-- SELECTED SERVICE -->
+
+      <div class="selected-service">
+
+        <div class="selected-service-icon">
+
+          <i
+            id="serviceIcon"
+            class="fa-solid fa-screwdriver-wrench"
+          ></i>
+
+        </div>
+
+
+        <div class="selected-service-text">
+
+          <small>
+            Selected Service
+          </small>
+
+          <h2 id="selectedService">
+            Construction Service
+          </h2>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =========================================
+           BOOKING FORM
+      ========================================= -->
+
+      <form
+        class="booking-form-page"
+        id="bookingForm"
+      >
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label for="customerName">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your full name"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+          <label for="phone">
+            Phone Number
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- LOCATION -->
+
+        <div class="form-group full-width">
+
+          <label for="location">
+            Service Location
+          </label>
+
+          <input
+            type="text"
+            id="location"
+            placeholder="Enter your house / site address"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- DATE -->
+
+        <div class="form-group">
+
+          <label for="date">
+            Preferred Date
+          </label>
+
+          <input
+            type="date"
+            id="date"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- TIME -->
+
+        <div class="form-group">
+
+          <label for="time">
+            Preferred Time
+          </label>
+
+          <select
+            id="time"
+            required
+          >
+
+            <option value="">
+              Select time
+            </option>
+
+            <option value="09:00 AM">
+              09:00 AM
+            </option>
+
+            <option value="10:00 AM">
+              10:00 AM
+            </option>
+
+            <option value="11:00 AM">
+              11:00 AM
+            </option>
+
+            <option value="12:00 PM">
+              12:00 PM
+            </option>
+
+            <option value="02:00 PM">
+              02:00 PM
+            </option>
+
+            <option value="03:00 PM">
+              03:00 PM
+            </option>
+
+            <option value="04:00 PM">
+              04:00 PM
+            </option>
+
+            <option value="05:00 PM">
+              05:00 PM
+            </option>
+
+            <option value="06:00 PM">
+              06:00 PM
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- WORK DETAILS -->
+
+        <div class="form-group full-width">
+
+          <label for="details">
+            Work Details
+          </label>
+
+          <textarea
+            id="details"
+            placeholder="Describe your work requirements..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- CONFIRM -->
+
+        <button
+          type="submit"
+          class="confirm-button"
+        >
+
+          <i class="fa-solid fa-calendar-check"></i>
+
+          Confirm Booking
+
+        </button>
+
+
+      </form>
+
+
+
+      <!-- =========================================
+           SUCCESS
+      ========================================= -->
+
+      <div
+        class="success-message"
+        id="successMessage"
+      >
+
+        <div class="success-icon">
+
+          <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <h2>
+          Booking Request Submitted!
+        </h2>
+
+
+        <p>
+          Thank you for choosing Next Vork.
+          Our team will contact you shortly.
+        </p>
+
+
+        <a
+          href="index.html"
+          class="home-button"
+        >
+
+          Back to Home
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
+  <script>
+
+
+    /* =========================================
+       GET SERVICE FROM URL
+    ========================================= */
+
+    const urlParams =
+      new URLSearchParams(window.location.search);
+
+
+    const service =
+      urlParams.get("service");
+
+
+    const selectedService =
+      document.getElementById("selectedService");
+
+
+    const serviceIcon =
+      document.getElementById("serviceIcon");
+
+
+
+    /* =========================================
+       DISPLAY SELECTED SERVICE
+    ========================================= */
+
+    if (service) {
+
+      selectedService.textContent =
+        service;
+
+    }
+
+
+
+    /* =========================================
+       CHANGE ICON
+    ========================================= */
+
+    const icons = {
+
+      "Engineer":
+        "fa-compass-drafting",
+
+      "Architect":
+        "fa-building",
+
+      "Construction Worker":
+        "fa-person-digging",
+
+      "Painter":
+        "fa-paint-roller",
+
+      "Interior Designer":
+        "fa-couch",
+
+      "Plumber":
+        "fa-faucet-drip",
+
+      "Electrician":
+        "fa-bolt",
+
+      "Carpenter":
+        "fa-hammer"
+
+    };
+
+
+    if (service && icons[service]) {
+
+      serviceIcon.className =
+        "fa-solid " + icons[service];
+
+    }
+
+
+
+    /* =========================================
+       SET MINIMUM DATE = TODAY
+    ========================================= */
+
+    const dateInput =
+      document.getElementById("date");
+
+
+    const today =
+      new Date();
+
+
+    const year =
+      today.getFullYear();
+
+
+    const month =
+      String(today.getMonth() + 1).padStart(2, "0");
+
+
+    const day =
+      String(today.getDate()).padStart(2, "0");
+
+
+    dateInput.min =
+      `${year}-${month}-${day}`;
+
+
+
+    /* =========================================
+       BOOKING SUBMIT
+    ========================================= */
+
+    const bookingForm =
+      document.getElementById("bookingForm");
+
+
+    const successMessage =
+      document.getElementById("successMessage");
+
+
+    bookingForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        /*
+          Front-end demo only.
+
+          Later this form can be connected
+          to your backend/database.
+        */
+
+
+        bookingForm.style.display =
+          "none";
+
+
+        successMessage.style.display =
+          "block";
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
